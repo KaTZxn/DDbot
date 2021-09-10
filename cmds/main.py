@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from core.classes import Cog_Extension
+import random
 
 class Main(Cog_Extension):
 
@@ -16,6 +17,12 @@ class Main(Cog_Extension):
     async def car(self,ctx,msg):
         link = ("https://nhentai.net/g/" + str(msg))
         await ctx.send(link)    
+
+    @commands.command()
+    async def randomcar(self,ctx):
+        num = random.randint(1,370000)
+        link = ("https://nhentai.net/g/" + str(num))
+        await ctx.send(link)   
 
 def setup(bot):
     bot.add_cog(Main(bot))
