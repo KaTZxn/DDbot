@@ -16,6 +16,7 @@ class React(Cog_Extension):
         if message.author == self.bot.user:
             return
         
+        if '躝' in message.content:
             channel = message.channel
             await channel.send(self.messageList[random.randint(0,2)])
 
