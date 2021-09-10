@@ -15,7 +15,7 @@ class React(Cog_Extension):
     async def on_message(self,message):
         if message.author == self.bot.user:
             return
-        if message.content.startswith('躝'):
+        if '躝' in message.content:
             channel = message.channel
             await channel.send(self.messageList[random.randint(0,2)])
 
