@@ -32,6 +32,10 @@ class Main(Cog_Extension):
         else:
             await ctx.send('你想屌邊個啊屌你')
 
+    @commands.command()
+    async def Aguis(self, ctx):
+        await ctx.send('最愛芝娃娃')
+
 
 def setup(bot):
     bot.add_cog(Main(bot))
