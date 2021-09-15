@@ -2,7 +2,7 @@ import discord
 import random
 from discord.ext import commands
 from core.classes import Cog_Extension
-
+import json
 
 class React(Cog_Extension):
 
@@ -11,23 +11,21 @@ class React(Cog_Extension):
         '唔該躝',
         '躝啦'
     ]
+    gayList = []
+
+    with open('./gayList.json') as f:
+        gayList = json.load(f)
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.author == self.bot.user:
+        if message.author.bot:
             return
 
         if '躝' in message.content:
             channel = message.channel
             await channel.send(self.messageList[random.randint(0, 2)])
 
-        gayList = [
-            '米高',
-            '木屌',
-            'Ag',
-            'Hei'
-        ]
-        for gay in gayList:
+        for gay in self.gayList:
             if gay in message.content:
                 channel = message.channel
                 await channel.send("He's gay.")
