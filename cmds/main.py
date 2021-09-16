@@ -1,8 +1,10 @@
 import discord
 from discord.ext import commands
+from discord.ext.commands.core import check
 from core.classes import Cog_Extension
 import random
 import json
+
 
 class Main(Cog_Extension):
 
@@ -38,20 +40,26 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def addGay(self, ctx, msg):
-        with open('./gayList.json') as f:
-            data = json.load(f)
-            data["gay"].append(msg)
-            json.dump(data, f, indent=4)
+        try:
+            json_file = open("./cmds/gayList.json", "r")
+            json_obj = json.load(json_file)
+            json_file.close()
+            json_obj["gay"].append(msg)
 
-        await ctx.send('{name}而家都係死gay佬'.format(name=msg))
+            json_file = open("./cmds/gayList.json", "w", encoding="UTF-8")
+            json.dump(json_obj, json_file, ensure_ascii=False)
+            json_file.close()
+            await ctx.send('{name}而家都係死gay佬'.format(name=msg))
+        except Exception as ex:
+            print(ex)
 
     @commands.command()
     async def removeGay(self, ctx, msg):
-        with open('./gayList.json') as f:
+        with open('./cmds/gayList.json', 'r+', encoding='utf8') as f:
             data = json.load(f)
             for index in data.gay:
                 if msg == data.gay[index]:
-                    del data.gay[index];
+                    del data.gay[index]
                     await ctx.send('{name}而家唔係死gay佬啦...'.format(name=msg))
         await ctx.send('{name}本來就唔係死gay佬'.format(name=msg))
 

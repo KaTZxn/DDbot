@@ -4,6 +4,7 @@ from discord.ext import commands
 from core.classes import Cog_Extension
 import json
 
+
 class React(Cog_Extension):
 
     messageList = [
@@ -12,18 +13,27 @@ class React(Cog_Extension):
         '躝啦'
     ]
     gayList = []
-
-    with open('./gayList.json') as f:
-        gayList = json.load(f)
+    with open('./cmds/gayList.json', 'r', encoding='utf8') as f:
+        json_data = json.load(f)
+        gayList = json_data["gay"]
 
     @commands.Cog.listener()
     async def on_message(self, message):
+
         if message.author.bot:
             return
 
         if '躝' in message.content:
             channel = message.channel
             await channel.send(self.messageList[random.randint(0, 2)])
+
+        if message.content.startswith('立屌玩緊'):
+            msg = message.content.split(" ", 2)
+            if len(msg) == 1:
+                await message.channel.send("？")
+            else:
+                game = discord.Game(msg[1])
+                await self.bot.change_presence(activity=game)
 
         for gay in self.gayList:
             if gay in message.content:
