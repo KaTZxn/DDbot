@@ -40,6 +40,8 @@ class React(Cog_Extension):
             if gay in message.content:
                 channel = message.channel
                 await channel.send("He's gay.")
+                break
+
 
 
 def setup(bot):
