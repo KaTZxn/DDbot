@@ -4,6 +4,7 @@ from discord.ext.commands.core import check
 from core.classes import Cog_Extension
 import random
 import json
+import math
 
 
 class Main(Cog_Extension):
@@ -80,6 +81,44 @@ class Main(Cog_Extension):
         list = []
         list = json_obj["gay"]
         await ctx.send(list)
+
+    # helper function
+    def randomBool(prob):
+        return True if random.random() < prob else False
+
+    @commands.command()
+    async def weeb(self, ctx, msg):
+        if len(msg) == 0:
+            await ctx.send('（黑化勃起')
+            return
+
+        with open("./cmds/weeb_msg.json", "r") as file:
+            json_obj = json.load(file)
+
+        weeb_text = ''
+        text_arr = msg.split("\n")
+
+        for line in text_arr:
+            have_www = self.randomBool(0.2)
+            # a if condition else b
+            www_count = (math.floor(
+                (random.random() * 4) + 2)) if have_www else 0
+            www_str = 'w' * www_count
+
+            have_postfix = self.randomBool(0.6)
+            postfix_index = random.randint(
+                0, (len(json_obj["postfix"]) - 1))
+            postfix_str = json_obj["postfix"][postfix_index] if have_postfix else ''
+
+            have_prefix = self.randomBool(0.2)
+            prefix_index = random.randint(
+                0, (len(json_obj["prefix"]) - 1))
+            prefix_str = json_obj["postfix"][prefix_index] if have_prefix else ''
+
+            weeb_text += '${prefix} ${line} ${www} %{postfix}\n'.format(
+                prefix=prefix_str, line=line, www=www_str, postfix=postfix_str)
+
+        await ctx.send(weeb_text)
 
 
 def setup(bot):
