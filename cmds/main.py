@@ -44,6 +44,10 @@ class Main(Cog_Extension):
             json_file = open("./cmds/gayList.json", "r")
             json_obj = json.load(json_file)
             json_file.close()
+            if msg in json_obj["gay"]:
+                await ctx.send('{name}本身就係死gay佬=='.format(name=msg))
+                return
+
             json_obj["gay"].append(msg)
 
             json_file = open("./cmds/gayList.json", "w", encoding="UTF-8")
@@ -55,12 +59,17 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def removeGay(self, ctx, msg):
-        with open('./cmds/gayList.json', 'r+', encoding='utf8') as f:
-            data = json.load(f)
-            for index in data.gay:
-                if msg == data.gay[index]:
-                    del data.gay[index]
-                    await ctx.send('{name}而家唔係死gay佬啦...'.format(name=msg))
+        json_file = open("./cmds/gayList.json", "r")
+        json_obj = json.load(json_file)
+        json_file.close()
+        
+        for index in json_obj.gay:
+            if msg == json_obj.gay[index]:
+                del json_obj.gay[index]
+                json_file = open("./cmds/gayList.json", "w", encoding="UTF-8")
+                json.dump(json_obj, json_file, ensure_ascii=False)
+                json_file.close()
+                await ctx.send('{name}而家唔係死gay佬啦...'.format(name=msg))
         await ctx.send('{name}本來就唔係死gay佬'.format(name=msg))
 
 

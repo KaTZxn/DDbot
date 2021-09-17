@@ -39,10 +39,12 @@ class React(Cog_Extension):
                 await message.channel.send('立屌而家玩緊'+msg[1])
                 return
 
+
         if message.content in self.gayList:
             channel = message.channel
             await channel.send("He's gay.")
             return
+
 
 
 def setup(bot):
