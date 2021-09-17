@@ -45,7 +45,7 @@ class Main(Cog_Extension):
             json_obj = json.load(json_file)
             json_file.close()
             if msg in json_obj["gay"]:
-                await ctx.send('{name}本身就係死gay佬=='.format(name=msg))
+                await ctx.send('{name}本身就係死gay佬'.format(name=msg))
                 return
 
             json_obj["gay"].append(msg)
@@ -62,16 +62,24 @@ class Main(Cog_Extension):
         json_file = open("./cmds/gayList.json", "r")
         json_obj = json.load(json_file)
         json_file.close()
-        
-        for index in json_obj["gay"]:
+
+        for index in range(len(json_obj["gay"])):
             if msg == json_obj["gay"][index]:
                 del json_obj["gay"][index]
                 json_file = open("./cmds/gayList.json", "w", encoding="UTF-8")
                 json.dump(json_obj, json_file, ensure_ascii=False)
                 json_file.close()
                 await ctx.send('{name}而家唔係死gay佬啦...'.format(name=msg))
-                break
+                return
         await ctx.send('{name}本來就唔係死gay佬'.format(name=msg))
+
+    @commands.command()
+    async def listGay(self, ctx):
+        json_file = open("./cmds/gayList.json", "r")
+        json_obj = json.load(json_file)
+        list = []
+        list = json_obj["gay"]
+        await ctx.send(list)
 
 
 def setup(bot):
