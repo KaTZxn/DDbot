@@ -34,6 +34,7 @@ class React(Cog_Extension):
             else:
                 game = discord.Game(msg[1])
                 await self.bot.change_presence(activity=game)
+                await message.channel.send('立屌而家玩緊'+msg[1])
 
         for gay in self.gayList:
             if gay in message.content:
