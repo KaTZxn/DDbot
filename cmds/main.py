@@ -63,13 +63,14 @@ class Main(Cog_Extension):
         json_obj = json.load(json_file)
         json_file.close()
         
-        for index in json_obj.gay:
-            if msg == json_obj.gay[index]:
-                del json_obj.gay[index]
+        for index in json_obj["gay"]:
+            if msg == json_obj["gay"][index]:
+                del json_obj["gay"][index]
                 json_file = open("./cmds/gayList.json", "w", encoding="UTF-8")
                 json.dump(json_obj, json_file, ensure_ascii=False)
                 json_file.close()
                 await ctx.send('{name}而家唔係死gay佬啦...'.format(name=msg))
+                break
         await ctx.send('{name}本來就唔係死gay佬'.format(name=msg))
 
 
