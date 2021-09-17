@@ -26,20 +26,23 @@ class React(Cog_Extension):
         if '躝' in message.content:
             channel = message.channel
             await channel.send(self.messageList[random.randint(0, 2)])
+            return
 
         if message.content.startswith('立屌玩緊'):
             msg = message.content.split(" ", 2)
             if len(msg) == 1:
                 await message.channel.send("？")
+                return
             else:
                 game = discord.Game(msg[1])
                 await self.bot.change_presence(activity=game)
                 await message.channel.send('立屌而家玩緊'+msg[1])
+                return
 
-        for gay in self.gayList:
-            if gay in message.content:
-                channel = message.channel
-                await channel.send("He's gay.")
+        if message.content in self.gayList:
+            channel = message.channel
+            await channel.send("He's gay.")
+            return
 
 
 def setup(bot):
