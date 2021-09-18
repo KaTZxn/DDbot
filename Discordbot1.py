@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import json
 import os
 
@@ -9,10 +9,16 @@ with open('setting.json', 'r', encoding='utf8') as jfile:
 bot = commands.Bot(command_prefix="-")
 
 
+@tasks.loop(hour=1)
+async def hour_alert(ctx):
+    await ctx.send('唔該躝')
+
+
 @bot.event
 async def on_ready():
     print("---Bot is online now.---")
     game = discord.Game('湊あくあ')
+    hour_alert.start()
     await bot.change_presence(status=discord.Status.online, activity=game)
 
 
