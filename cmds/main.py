@@ -115,7 +115,26 @@ class Main(Cog_Extension):
 
             weeb_text += f'{prefix_str} {line}{www_str}{postfix_str}\n'.lstrip()
 
+        await ctx.message.delete()
         await ctx.send(weeb_text)
+
+    @commands.command()
+    async def pien(self, ctx):
+        pic = discord.File('./pic/pien.jpg')
+        await ctx.send(file=pic)
+
+    @commands.command()
+    async def xi(self, ctx):
+        pic = discord.File('./pic/xi.jpg')
+        await ctx.send(file=pic)
+
+    @commands.command()
+    async def 我婆(self, ctx):
+        with open('setting.json', 'r', encoding='utf8') as jfile:
+            jdata = json.load(jfile)
+        ranpic = random.choice(jdata['WIFE'])
+        pic = discord.File(ranpic)
+        await ctx.send(file=pic)
 
 
 def setup(bot):
