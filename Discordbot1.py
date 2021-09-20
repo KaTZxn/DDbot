@@ -35,6 +35,6 @@ for filename in os.listdir("./cmds"):
     if filename.endswith(".py"):
         bot.load_extension(f"cmds.{filename[:-3]}")
 
-
+access_token = os.environ["DISCORD_BOT_TOKEN"]
 if __name__ == "__main__":
-    bot.run('DISCORD_BOT_TOKEN')
+    bot.run('access_token')
