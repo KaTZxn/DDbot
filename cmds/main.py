@@ -31,6 +31,7 @@ class Main(Cog_Extension):
     @commands.command()
     async def 屌(self, ctx, msg):
         if '@' in msg:
+            await ctx.message.delete()
             await ctx.send(msg+'屌你')
         else:
             await ctx.send('你想屌邊個啊屌你')
@@ -135,6 +136,15 @@ class Main(Cog_Extension):
         ranpic = random.choice(jdata['WIFE'])
         pic = discord.File(ranpic)
         await ctx.send(file=pic)
+
+    @commands.command()
+    async def 木屌對波圖(self, ctx):
+        pic = discord.File('./pic/wf.jpg')
+        await ctx.send(file=pic)
+
+    # @commands.command()
+    # async def pic(self, ctx, msg):
+        # await ctx.send(msg)
 
 
 def setup(bot):
