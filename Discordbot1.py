@@ -37,4 +37,4 @@ for filename in os.listdir("./cmds"):
 
 access_token = os.environ["DISCORD_BOT_TOKEN"]
 if __name__ == "__main__":
-    bot.run('access_token')
+    bot.run(access_token)
