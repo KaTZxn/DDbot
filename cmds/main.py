@@ -131,7 +131,7 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def 我婆(self, ctx):
-        with open('setting.json', 'r', encoding='utf8') as jfile:
+        with open('./setting.json', 'r', encoding='utf8') as jfile:
             jdata = json.load(jfile)
         ranpic = random.choice(jdata['WIFE'])
         pic = discord.File(ranpic)
