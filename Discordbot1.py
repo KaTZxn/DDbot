@@ -1,10 +1,7 @@
 import discord
 from discord.ext import commands, tasks
-import json
 import os
 
-with open('setting.json', 'r', encoding='utf8') as jfile:
-    jdata = json.load(jfile)
 
 bot = commands.Bot(command_prefix="-")
 
