@@ -2,4 +2,3 @@ discord.py
 discord.py[voice]
 youtube_dl
 PyNaCl==1.4.0
-ffmpeg-python
