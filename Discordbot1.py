@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands, tasks
+from discord import FFmpegPCMAudio
 import os
 
 bot = commands.Bot(command_prefix="-")
