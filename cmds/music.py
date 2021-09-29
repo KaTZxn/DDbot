@@ -107,7 +107,7 @@ class Music(commands.Cog):
             # try to play next in the queue if it exists
             await self.play_music()
 
-    @commands.command
+    @commands.command()
     async def listM(self, ctx):
         await ctx.send(self.music_queue)
 
