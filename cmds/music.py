@@ -34,7 +34,6 @@ class Music(commands.Cog):
     def play_next(self):
         if len(self.music_queue) > 0:
             self.is_playing = True
-
             # get the first url
             m_url = self.music_queue[0][0]['source']
 
