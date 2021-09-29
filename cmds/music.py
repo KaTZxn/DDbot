@@ -103,8 +103,13 @@ class Music(commands.Cog):
     async def skip(self, ctx):
         if self.vc != "" and self.vc:
             self.vc.stop()
+            await ctx.send("Skip撚左喇屌你")
             # try to play next in the queue if it exists
             await self.play_music()
+
+    @commands.command
+    async def listM(self, ctx):
+        await ctx.send(self.music_queue)
 
 
 def setup(bot):
