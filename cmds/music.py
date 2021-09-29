@@ -1,13 +1,24 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands.core import check
-from core.classes import Music_Cog
 
 
 from youtube_dl import YoutubeDL
 
 
-class Music(Music_Cog):
+class Music(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+
+        self.is_playing = False
+
+        self.music_queue = []
+        self.YDL_OPTIONS = {'format': 'bestaudio', 'noplaylist': 'True'}
+        self.FFMPEG_OPTIONS = {
+            'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5', 'options': 'vn'}
+
+        self.vc = ""
+
     def search_yt(self, item):
         with YoutubeDL(self.YDL_OPTIONS) as ydl:
             try:
