@@ -75,13 +75,13 @@ class Music(commands.Cog):
         voice_channel = ctx.author.voice.channel
         if voice_channel is None:
             # you need to be connected so that the bot knows where to go
-            await ctx.send("Connect to a voice channel!")
+            await ctx.send("入channel未")
         else:
             song = self.search_yt(query)
             if type(song) == type(True):
-                await ctx.send("Could not download the song. Incorrect format try another keyword. This could be due to playlist or a livestream format.")
+                await ctx.send("Load唔撚到啊屌你")
             else:
-                await ctx.send("Song added to the queue")
+                await ctx.send("加撚左喇屌你")
                 self.music_queue.append([song, voice_channel])
 
                 if self.is_playing == False:
