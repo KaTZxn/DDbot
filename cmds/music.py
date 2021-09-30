@@ -109,7 +109,9 @@ class Music(commands.Cog):
 
     @commands.command()
     async def listM(self, ctx):
-        await ctx.send(self.music_queue)
+        list = []
+        list = self.music_queue
+        await ctx.send(list)
 
 
 def setup(bot):
