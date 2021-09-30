@@ -97,7 +97,7 @@ class Music(commands.Cog):
         if retval != "":
             await ctx.send(retval)
         else:
-            await ctx.send("No music in queue")
+            await ctx.send("冇喇屌你")
 
     @commands.command(name="skip", help="Skips the current song being played")
     async def skip(self, ctx):
@@ -106,12 +106,6 @@ class Music(commands.Cog):
             await ctx.send("Skip撚左喇屌你")
             # try to play next in the queue if it exists
             await self.play_music()
-
-    @commands.command()
-    async def listM(self, ctx):
-        list = []
-        list = self.music_queue
-        await ctx.send(list)
 
 
 def setup(bot):
