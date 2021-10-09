@@ -144,6 +144,10 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def roll(self, ctx, msg):
+        if len(msg) == 0:
+            await ctx.send(random.randint(1, 100))
+            return
+
         if 'd' in msg:
             dice = msg.split('d')
             numlist = []
@@ -158,9 +162,6 @@ class Main(Cog_Extension):
         elif msg.isdigit():
             num = random.randint(1, int(msg))
             await ctx.send(num)
-            return
-        else:
-            await ctx.send("？")
             return
 
 
