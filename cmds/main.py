@@ -146,12 +146,12 @@ class Main(Cog_Extension):
     async def roll(self, ctx, msg):
         if 'd' in msg:
             dice = msg.split('d')
-            dicenum = random.randint(1, dice[1])
-            num = dice[0] * dicenum
+            dicenum = random.randint(1, int(dice[1]))
+            num = int(dice[0]) * dicenum
             await ctx.send('{msg}=\'{dice[0]}*{dicenum}\'={num}')
             return
         elif msg.isdigit():
-            num = random.randint(1, msg)
+            num = random.randint(1, int(msg))
             await ctx.send(num)
             return
         else:
