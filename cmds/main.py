@@ -143,7 +143,7 @@ class Main(Cog_Extension):
         await ctx.send(file=pic)
 
     @commands.command()
-    async def roll(self, ctx, msg):
+    async def roll(self, ctx, *msg):
         if len(msg) == 0:
             await ctx.send(random.randint(1, 100))
             return
