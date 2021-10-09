@@ -144,7 +144,7 @@ class Main(Cog_Extension):
 
     @commands.command()
     async def roll(self, ctx, *, msg):
-        if len(msg) == 0:
+        if msg is None:
             await ctx.send(random.randint(1, 100))
             return
 
