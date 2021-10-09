@@ -153,7 +153,7 @@ class Main(Cog_Extension):
                 numlist.append(dice1)
             for ele in range(0, len(numlist)):
                 total = total + numlist[ele]
-            await ctx.send(msg+"= " + str(numlist) + " ="+str(total))
+            await ctx.send(msg+" = " + str(numlist) + " = "+str(total))
             return
         elif msg.isdigit():
             num = random.randint(1, int(msg))
