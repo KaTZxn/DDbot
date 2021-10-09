@@ -148,7 +148,7 @@ class Main(Cog_Extension):
             dice = msg.split('d')
             dicenum = random.randint(1, int(dice[1]))
             num = int(dice[0]) * dicenum
-            await ctx.send('{msg}=\'{dice[0]}*{dicenum}\'={num}')
+            await ctx.send(msg+"='"+dice[0]+"*"+dicenum+"'="+num)
             return
         elif msg.isdigit():
             num = random.randint(1, int(msg))
@@ -156,6 +156,7 @@ class Main(Cog_Extension):
             return
         else:
             await ctx.send("？")
+            return
 
 
 def setup(bot):
