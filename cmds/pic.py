@@ -16,3 +16,7 @@ class Pic(Cog_Extension):
         num = random.randint(1, len(image_links))
 
         await ctx.send(image_links[num])
+
+
+def setup(bot):
+    bot.add_cog(Pic(bot))
