@@ -148,7 +148,7 @@ class Main(Cog_Extension):
             dice = msg.split('d')
             dicenum = random.randint(1, int(dice[1]))
             num = int(dice[0]) * dicenum
-            await ctx.send(msg+"='"+dice[0]+"*"+dicenum+"'="+num)
+            await ctx.send(msg+"='"+str(dice[0])+"*"+str(dicenum)+"'="+str(num))
             return
         elif msg.isdigit():
             num = random.randint(1, int(msg))
