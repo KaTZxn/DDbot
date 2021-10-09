@@ -142,9 +142,20 @@ class Main(Cog_Extension):
         pic = discord.File('./pic/wf.jpg')
         await ctx.send(file=pic)
 
-    # @commands.command()
-    # async def pic(self, ctx, msg):
-        # await ctx.send(msg)
+    @commands.command()
+    async def roll(self, ctx, msg):
+        if 'd' in msg:
+            dice = msg.split('d')
+            dicenum = random.randint(1, dice[1])
+            num = dice[0] * dicenum
+            await ctx.send('{msg}=\'{dice[0]}*{dicenum}\'={num}')
+            return
+        elif msg.isdigit():
+            num = random.randint(1, msg)
+            await ctx.send(num)
+            return
+        else:
+            await ctx.send("？")
 
 
 def setup(bot):
