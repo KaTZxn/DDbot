@@ -149,7 +149,7 @@ class Main(Cog_Extension):
             dice1 = random.randint(1, int(dice[1]))
             dice2 = random.randint(1, int(dice[1]))
             num = dice1 + dice2
-            await ctx.send(msg+"= ' "+str(dice1)+" * "+str(dice2)+" ' ="+str(num))
+            await ctx.send(msg+"= ' "+str(dice1)+" + "+str(dice2)+" ' ="+str(num))
             return
         elif msg.isdigit():
             num = random.randint(1, int(msg))
