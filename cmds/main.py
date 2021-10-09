@@ -147,12 +147,13 @@ class Main(Cog_Extension):
         if 'd' in msg:
             dice = msg.split('d')
             numlist = []
-            for dices in dice[1]:
+            total = 0
+            for dices in range(int(dice[0])):
                 dice1 = random.randint(1, int(dice[1]))
                 numlist.append(dice1)
             for ele in range(0, len(numlist)):
                 total = total + numlist[ele]
-            await ctx.send(msg+"= "+numlist + " ="+str(total))
+                await ctx.send(msg+"= "+numlist + " ="+str(total))
             return
         elif msg.isdigit():
             num = random.randint(1, int(msg))
