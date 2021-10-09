@@ -4,3 +4,4 @@ youtube_dl
 PyNaCl==1.4.0
 beautifulsoup4
 lxml
+requests
