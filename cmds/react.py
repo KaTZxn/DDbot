@@ -29,7 +29,7 @@ class React(Cog_Extension):
             return
 
         if message.content.startswith('立屌玩緊'):
-            msg = message.content.split(" ", 2)
+            msg = message.content.split(" ", 1)
             if len(msg) == 1:
                 await message.channel.send("？")
                 return
