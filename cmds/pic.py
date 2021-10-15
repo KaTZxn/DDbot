@@ -13,7 +13,7 @@ class Pic(Cog_Extension):
         soup = BeautifulSoup(response.text, "html.parser")
         results = soup.find_all('a', {'class': 'directlink largeimg'})
         image_links = [result.get("href") for result in results]
-        for i in num:
+        for i in range(num):
             num = random.randint(1, len(image_links))
             await ctx.send(image_links[num])
 
