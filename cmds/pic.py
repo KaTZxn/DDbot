@@ -27,7 +27,7 @@ class Pic(Cog_Extension):
         num = random.randint(1, len(image_links))
         pic = await ctx.send(image_links[num])
         await asyncio.sleep(time)
-        await ctx.pic.delete()
+        await pic.delete()
         
 
 
