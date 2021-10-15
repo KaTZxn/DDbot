@@ -70,15 +70,16 @@ class Music(commands.Cog):
 
     @commands.command(name="play", help="Plays a selected song from youtube")
     async def p(self, ctx, *args):
+        
+        query = " ".join(args)
+        
+        voice_channel = ctx.author.voice.channel
         if len(args) == 0:
             song = self.search_yt('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
             self.music_queue.append([song, voice_channel])
 
             if self.is_playing == False:
                 await self.play_music()
-        query = " ".join(args)
-        
-        voice_channel = ctx.author.voice.channel
         if voice_channel is None:
             # you need to be connected so that the bot knows where to go
             await ctx.send("入channel未")
