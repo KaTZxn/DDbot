@@ -15,8 +15,9 @@ class Pic(Cog_Extension):
         results = soup.find_all('a', {'class': 'directlink largeimg'})
         image_links = [result.get("href") for result in results]
         for i in range(num):
-            num = random.randint(1, len(image_links))
-            await ctx.send(image_links[num])
+            img = random.choice(image_links)
+            pic = await ctx.send(img)
+            await ctx.send(pic)
 
     @commands.command()
     async def ts(self, ctx, msg,*,time = 5):
@@ -24,8 +25,8 @@ class Pic(Cog_Extension):
         soup = BeautifulSoup(response.text, "html.parser")
         results = soup.find_all('a', {'class': 'directlink largeimg'})
         image_links = [result.get("href") for result in results]
-        num = random.randint(1, len(image_links))
-        pic = await ctx.send(image_links[num])
+        img = random.choice(image_links)
+        pic = await ctx.send(img)
         await asyncio.sleep(time)
         await ctx.message.delete()
         await pic.delete()
