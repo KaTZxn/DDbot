@@ -4,7 +4,7 @@ from core.classes import Cog_Extension
 import random
 from bs4 import BeautifulSoup
 import requests
-import time
+import asyncio
 
 
 class Pic(Cog_Extension):
