@@ -71,7 +71,8 @@ class Music(commands.Cog):
     @commands.command(name="play", help="Plays a selected song from youtube")
     async def p(self, ctx, *args):
         if len(args) == 0:
-            self.music_queue.append(['https://www.youtube.com/watch?v=dQw4w9WgXcQ', voice_channel])
+            song = self.search_yt('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
+            self.music_queue.append([song, voice_channel])
 
             if self.is_playing == False:
                 await self.play_music()
