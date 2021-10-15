@@ -77,10 +77,10 @@ class Music(commands.Cog):
         if len(args) == 0:
             song = self.search_yt('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
             self.music_queue.append([song, voice_channel])
-
+            await ctx.send("OK")
             if self.is_playing == False:
                 await self.play_music()
-        if voice_channel is None:
+        elif voice_channel is None:
             # you need to be connected so that the bot knows where to go
             await ctx.send("入channel未")
         else:
