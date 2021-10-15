@@ -16,8 +16,7 @@ class Pic(Cog_Extension):
         image_links = [result.get("href") for result in results]
         for i in range(num):
             img = random.choice(image_links)
-            pic = await ctx.send(img)
-            await ctx.send(pic)
+            await ctx.send(img)
 
     @commands.command()
     async def ts(self, ctx, msg,*,time = 5):
