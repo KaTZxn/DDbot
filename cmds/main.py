@@ -163,7 +163,7 @@ class Main(Cog_Extension):
             num = random.randint(1, int(msg))
             await ctx.send(num)
             return
-
+    
 
         
 

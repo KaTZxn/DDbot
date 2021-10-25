@@ -1,0 +1,27 @@
+{
+    "counts": 56,
+    "channels":[
+        {
+            "id": 1,
+            "yt_id": "UCp6993wxpyDPHUpavwDFqgg",
+            "icon": "https://yt3.ggpht.com/ytc/AAUvwngZmr_qbKhGIvHaHwLRmKhKxdeFfM7ZbK316vFNSw=s800-c-k-c0x00ffffff-no-rj",
+            "tw_id": "tokino_sora",
+            "ch_name": "SoraCh. ときのそらチャンネル",
+            "name": "ときのそら",
+            "specifier": "Sora",
+            "part": "hololive",
+            "color": "0x4D84E8"
+        },
+        {
+            "id": 2,
+            "yt_id": "UCDqI2jOz0weumE8s7paEk6g",
+            "icon": "https://yt3.ggpht.com/ytc/AAUvwnjiwtRNYHIo1zl37gOIiEeOh-2s7HUdhv6WB8M1vQ=s800-c-k-c0x00ffffff-no-rj",
+            "tw_id": "robocosan",
+            "ch_name": "Roboco Ch. - ロボ子",
+            "name": "ロボ子さん",
+            "specifier": "Roboco",
+            "part": "hololive",
+            "color": "0xEA00EB"
+        }
+    ]
+}
