@@ -13,7 +13,7 @@ class Live(Cog_Extension):
     YOUTUBE_API_KEY = "AIzaSyDYr49jodshi4ou79kteo1p9xbKM5CnUAE"
 
 
-    def get_live_videos(channelID):
+    def get_live_videos(self,channelID):
     
         url = f"https://www.googleapis.com/youtube/v3/search?part=snippet,id&channelId={channelID}&key={YOUTUBE_API_KEY}&maxResults=100&order=date&type=video"
 
@@ -27,7 +27,7 @@ class Live(Cog_Extension):
 
         return live_videos
 
-    async def checkStreaming():
+    async def checkStreaming(self):
         await self.bot.wait_until_ready()
         self.channel = self.bot.getchannel(Channel)
         while not self.bot.is_closed():
@@ -50,9 +50,9 @@ class Live(Cog_Extension):
                             embed.set_author(name="木屌Vbot")
                             embed.set_thumbnail(url="http://img.youtube.com/vi/"+{video["id"]}+"/maxresdefault.jpg")
                             embed.add_field(name="{}", value="{}", inline=False)
-                            await ctx.send(embed=embed) 
+                            await self.channel.send(embed=embed) 
                 else:
-                    await ctx.send("ライブ配信がみつかりません")
+                    await self.channel.send("ライブ配信がみつかりません")
             await asyncio.sleep(1800)
 
 
