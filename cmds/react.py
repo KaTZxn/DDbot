@@ -9,8 +9,7 @@ class React(Cog_Extension):
 
     messageList = [
         '躝啦屌你老母',
-        '唔該躝',
-        '躝啦'
+        '唔該躝'
     ]
     gayList = []
     with open('./cmds/gayList.json', 'r', encoding='utf8') as f:
